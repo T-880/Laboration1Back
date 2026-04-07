@@ -1,0 +1,69 @@
+/* Grundlayout */
+/* Definiera teckensnitt och ta bort standardmarginaler/padding */
+body {
+    font-family: Arial, sans-serif; /* Fonten som används på hela sidan */
+    margin: 0; /* Ta bort default margin */
+    padding: 0; /* Ta bort default padding */
+}
+
+/* Header-styling */
+header {
+    background-color: #007bff; /* Sätter bakgrundsfärg till blå */
+    color: white; /* Textfärgen sätts till vit */
+    padding: 1rem; /* Lägger till lite padding runt headern */
+    text-align: center; /* Centrerar texten i headern */
+}
+
+/* Navigering: Stil för länkarna i headern */
+nav a {
+    color: white; /* Gör texten vit */
+    margin: 0 1rem; /* Lägg till marginal på sidorna av länkarna för att ge dem utrymme */
+    text-decoration: none; /* Tar bort understrykning från länkarna */
+}
+
+/* Container */
+.container {
+    width: 90%; /* Sätter bredden på container till 90% av sidan */
+    max-width: 800px; /* Sätter en maxbredd på 800px för att hålla innehållet hanterbart på större skärmar */
+    margin: 2rem auto; /* Centrerar containern och lägger till marginaler upptill och nedtill */
+}
+
+/* Tabell */
+table {
+    width: 100%; /* Tabellen tar upp hela bredden av containern */
+    border-collapse: collapse; /* Tar bort mellanrum mellan cellerna */
+    margin-bottom: 2rem; /* Lägger till margin under tabellen för att separera den från nästa innehåll */
+}
+
+/* Tabellen och dess celler får en standardram */
+table, th, td {
+    border: 1px solid #ccc; /* Lägger till en ljusgrå ram runt tabellen och dess celler */
+}
+
+/* Padding och textjustering för tabellens celler */
+th, td {
+    padding: 0.5rem; /* Lägger till lite utrymme i cellerna */
+    text-align: left; /* Justerar texten till vänster i varje cell */
+}
+
+/* Formulär */
+form input, form select, form button {
+    display: block; /* Gör alla form-element blocknivå för att ta upp hela bredden */
+    width: 100%; /* Sätter bredden på elementen till 100% */
+    margin-bottom: 1rem; /* Lägger till lite utrymme mellan fälten */
+    padding: 0.5rem; /* Lägger till padding i fälten så att texten inte ligger direkt mot kanten */
+    box-sizing: border-box; /* Ser till att padding ingår i den totala bredden på elementen */
+}
+
+/* Responsiv design */
+@media (max-width: 768px) {
+    nav {
+        display: flex; /* Använd flexbox för att arrangera länkarna */
+        flex-direction: column; /* Stapla länkarna vertikalt istället för horisontellt */
+    }
+
+    /* Minska storleken på tabellen när skärmen är mindre än 768px */
+    table, th, td {
+        font-size: 0.9rem; /* Minska textstorleken på små skärmar för att göra innehållet mer läsbart */
+    }
+}

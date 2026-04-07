@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Startsida - Databasbaserat CV</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Länkar till den externa CSS-filen för att styla sidan -->
+</head>
+<body>
+    <!-- Header med navigation -->
+    <header>
+        <h1>Databasbaserat CV</h1>
+        <nav>
+            <!-- Navigeringslänkar till startsidan, formulärsidan för att lägga till kurs, och en om-sida -->
+            <a href="/">Startsida</a>
+            <a href="/add-course">Lägg till kurs</a>
+            <a href="/about">Om</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Alla kurser</h2>
+
+        <!-- Om det inte finns några kurser -->
+        <% if (courses.length === 0) { %>
+            <p>Inga kurser lagrade ännu!</p> <!-- Meddelande om inga kurser finns -->
+        <% } else { %>
+            <!-- Om det finns kurser, visas dessa i en tabell -->
+            <table>
+                <thead>
+                    <tr>
+                        <!-- Tabellens kolumnrubriker -->
+                        <th>Kurskod</th>
+                        <th>Kursnamn</th>
+                        <th>Kursplan</th>
+                        <th>Progression</th>
+                        <th>Åtgärder</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- EJS-loop för att gå igenom varje kurs i arrayen "courses" -->
+                    <% courses.forEach(course => { %>
+                        <tr>
+                            <!-- Visar kursens information i tabellen -->
+                            <td><%= course.coursecode %></td>
+                            <td><%= course.coursename %></td>
+                            <td><a href="<%= course.syllabus %>" target="_blank">Visa kursplan</a></td> <!-- Länk till kursplanen -->
+                            <td><%= course.progression %></td>
+                            <td><a href="/delete/<%= course.id %>">Radera</a></td> <!-- Länk för att radera kursen -->
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } %> 
+
+    </div>
+</body>
+</html>

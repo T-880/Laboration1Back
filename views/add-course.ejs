@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Lägg till kurs - Databasbaserat CV</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Länkar till den externa CSS-filen för att styla sidan -->
+</head>
+<body>
+    <!-- Header med navigation -->
+    <header>
+        <h1>Databasbaserat CV</h1>
+        <nav>
+            <!-- Navigeringslänkar till startsidan, formulärsidan för att lägga till kurs, och en om-sida -->
+            <a href="/">Startsida</a>
+            <a href="/add-course">Lägg till kurs</a>
+            <a href="/about">Om</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Lägg till en ny kurs</h2>
+
+        <!-- Visa ett felmeddelande om en sådan finns -->
+        <% if (error) { %>
+            <p class="error"><%= error %></p> <!-- Felmeddelande vid fel vid formulärinlämning -->
+        <% } %>
+
+        <!-- Formulär för att lägga till en kurs -->
+        <form action="/add-course" method="POST">
+            <!-- Fält för att ange kurskod -->
+            <label for="coursecode">Kurskod:</label>
+            <input type="text" name="coursecode" id="coursecode" required> <!-- Kräver att användaren fyller i fältet -->
+
+            <!-- Fält för att ange kursnamn -->
+            <label for="coursename">Kursnamn:</label>
+            <input type="text" name="coursename" id="coursename" required> <!-- Kräver att användaren fyller i fältet -->
+
+            <!-- Fält för att ange en länk till kursplan -->
+            <label for="syllabus">Kursplan (länk):</label>
+            <input type="url" name="syllabus" id="syllabus" required> <!-- Kräver att användaren fyller i fältet -->
+
+            <!-- Fält för att ange progression A/B -->
+            <label for="progression">Progression (A/B):</label>
+            <input type="text" name="progression" id="progression" required> <!-- Kräver att användaren fyller i fältet -->
+
+            <!-- Skicka-knapp för att lägga till kursen -->
+            <button type="submit">Lägg till kurs</button>
+        </form>
+    </div>
+</body>
+</html>
